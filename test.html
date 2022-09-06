@@ -4,6 +4,22 @@
     <meta charset="UTF-8">
     <title>INC System Data</title>
     <link rel="stylesheet" href="css\style.css" type="text/css">
+
+    <script>
+        window.onload = function(){
+            var date = new Date();
+            var year = date.getFullYear();
+            var month = "" + (date.getMonth()+1);
+            var day = date.getDate();
+
+            if(month.length < 2) month = "0" + month;
+            if(day.length < 2) day = "0" + day;
+
+            var Today = year.toString() + "-" + month + "-" + day;
+
+            document.getElementById("select_date").value = Today;
+        }
+    </script>
 </head>
 <body>
     <div id="header">
@@ -16,12 +32,14 @@
             </li>
         </ul>
     </div>
+    <!--현재 날짜 반환-->
+    
     <div id="contents">
         <div class="filter-bar">
             <div style="margin-top:5px;">
-                <label for="date-picker">날짜 선택 :</label>
-                <input type="date" id="date-picker" onchange='view_ajax(1)'
-                    min="2021-01-01" max="2021-12-31" style="margin-left:5px;">
+                <label for="select_date">날짜 선택 :</label>
+                <input type="date" id="select_date" min="2021-01-01" max="2022-12-31" style="margin-left:5px;">
+                    <!--<input type="date" id="select_date" onchange=current_date-->
             </div>
     
             <div style="margin-left: 10px;">
